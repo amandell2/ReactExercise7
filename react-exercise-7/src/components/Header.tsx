@@ -11,7 +11,7 @@ export default function Header(){
     return(
         <div className= 'Header__container'>
             <h1>Sunny Side Up</h1>
-            <p>Order Count: </p>
+            <p>Order Count: {order.length} </p>
         </div>
     )
 }

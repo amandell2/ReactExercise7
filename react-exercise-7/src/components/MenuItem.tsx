@@ -1,4 +1,4 @@
-import { FormEvent, useContext, useState } from "react";
+import {useContext, useState } from "react";
 import OrderContext from "../context/OrderContext";
 import { Item } from "../model/Item";
 
@@ -7,20 +7,10 @@ interface Props{
 }
 
 export function MenuItem({item}: Props){
-   const [count, setCount] = useState(0);
+   const {order, addItem, removeItem} = useContext(OrderContext);
   
-    function handleAdd(){
-        let orderCount = count + 1;
-        setCount(orderCount);
-        console.log(`Order Count is: ${orderCount}`)
-        //addItem(item);
-    };
+   const [showRemove, setShowRemove] = useState(false);
 
-    function handleRemove(){
-        let orderCount = count - 1;
-        setCount(orderCount);
-        console.log(`Order Count is: ${orderCount}`)
-    };
 
     return(
         <div>
@@ -31,8 +21,16 @@ export function MenuItem({item}: Props){
                     <p>Calories: {item.calories}</p>
                     <p>Price: {item.price}</p>
                     {item.vegetarian ? <p>Vegetarian</p> : <p>Not Vegetarian</p>}
-                    <button onClick={()=>handleAdd()}>Add to Order</button> 
-                    <button onClick={()=>handleRemove()}>Remove from Order</button>
+                    <button onClick={()=>{addItem(item); setShowRemove(true)}}>Add to Order</button> 
+                    {
+                    showRemove && 
+                    <button onClick={()=>
+                        {removeItem(item.id); 
+                            {order.includes(item) ? setShowRemove(true) : setShowRemove(false)}
+                    }}>
+                        Remove from Order</button>
+                    }
+                    
                 </li>
             </ul>
         </div>

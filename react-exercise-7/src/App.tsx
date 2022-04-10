@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import MenuList from './components/MenuList';
 import Header from './components/Header';
+import Sidebar from './components/Sidebar';
 
 function App() {
   return (
@@ -10,8 +11,9 @@ function App() {
       <header>
         <Header/>
       </header>
-      <main>
+      <main className="App__mainSection">
         <MenuList/>
+        <Sidebar/>
       </main>
     </div>
   );
