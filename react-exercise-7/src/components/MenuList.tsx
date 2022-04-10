@@ -2,6 +2,7 @@ import { useContext } from "react";
 import OrderContext from "../context/OrderContext";
 import { Item } from "../model/Item";
 import {MenuItem} from "./MenuItem";
+import Sidebar from "./Sidebar";
 
 interface Props{
     MenuItem: Item;
@@ -73,13 +74,14 @@ const menuArray = [
    },
  ];
 
-export default function MenuList(){
 
+export default function MenuList(){
 const {order, addItem, removeItem} = useContext(OrderContext);
-    
+
     return(
         <div>
             {menuArray.map((item, i) => <MenuItem key={i} item={item}/>)}
+            <Sidebar/>
         </div>
     )
 
