@@ -22,13 +22,10 @@ export function MenuItem({item}: Props){
                     <p>Calories: {item.calories}</p>
                     <p>Price: ${(item.price).toFixed(2)}</p>
                     {item.vegetarian ? <p>Vegetarian</p> : <p>Not Vegetarian</p>}
-                    <button onClick={()=>{addItem(item); setShowRemove(true)}}>Add to Order</button> 
+                    <button onClick={()=>addItem(item)}>Add to Order</button> 
                     {
-                    showRemove && 
-                    <button className="MenuItem__removeBtn"onClick={()=>
-                        {removeItem(item.id); 
-                            {order.includes(item) ? setShowRemove(true) : setShowRemove(false)}
-                    }}>
+                    order.some((currentItem)=>currentItem.id === item.id) && 
+                    <button className="MenuItem__removeBtn"onClick={()=>removeItem(item.id)}>
                         Remove from Order</button>
                     }
                     
