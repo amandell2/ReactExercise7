@@ -2,10 +2,9 @@ import './Header.css';
 import { useContext } from "react";
 import OrderContext from "../context/OrderContext";
 
-import { MenuItem } from "./MenuItem";
 
 export default function Header(){
-    const {order, addItem, removeItem} = useContext(OrderContext);
+    const {order} = useContext(OrderContext);
    
 
     return(

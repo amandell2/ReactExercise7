@@ -2,10 +2,9 @@ import { useContext, useState } from "react";
 import OrderContext from "../context/OrderContext";
 import { Item } from "../model/Item";
 import {MenuItem} from "./MenuItem";
-import Sidebar from "./Sidebar";
 
 
-const menuArray = [
+const menuArray: Item[] = [
     {
      id: "abc123",
      name: "Chicken and Waffles",

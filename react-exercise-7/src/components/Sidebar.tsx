@@ -1,11 +1,10 @@
 import { useContext } from "react";
 import OrderContext from "../context/OrderContext";
-import { MenuItem } from "./MenuItem";
 import "./Sidebar.css";
 
 
 export default function Sidebar(){
-    const {order, addItem, removeItem} = useContext(OrderContext);
+    const {order} = useContext(OrderContext);
      
     return(
     <div className="Sidebar__container">

@@ -10,9 +10,6 @@ interface Props{
 export function MenuItem({item}: Props){
    const {order, addItem, removeItem} = useContext(OrderContext);
   
-   const [showRemove, setShowRemove] = useState(false);
-
-
     return(
         <div>
             <ul>
